@@ -49,3 +49,13 @@ https://www.nativewind.dev/getting-started/typescript
 ```bash
 npm i react-native-safe-area-context
 ```
+
+## Setup lint and prettier
+https://docs.expo.dev/guides/using-eslint/
+
+```
+npx expo lint
+npx expo install -- --save-dev prettier eslint-config-prettier eslint-plugin-prettier
+```
+
+update .eslintrc.js
