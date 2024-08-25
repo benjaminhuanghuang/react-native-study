@@ -5,11 +5,14 @@ import { useEffect } from "react";
 import { useFonts } from "expo-font";
 
 // this will prevent the flash screen from auto hiding until loading all the assets is complete
-SplashScreen.preventAutoHideAsync();
+//SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
-    
+
     return (
-       <Slot/>
+        <Stack>
+            <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+            <Stack.Screen name="index" options={{ headerShown: false }} />
+        </Stack>
     );
 }

@@ -3,7 +3,11 @@ import { StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const Content = ({ children }: any) => {
-    return <SafeAreaView style={[styles.container]}>{children}</SafeAreaView>;
+    return (
+        <SafeAreaView style={[styles.container]}>
+            {children}
+        </SafeAreaView>
+    );
 };
 
 const styles = StyleSheet.create({

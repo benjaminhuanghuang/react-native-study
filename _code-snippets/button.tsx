@@ -27,6 +27,4 @@ const CustomButton = ({
             </Text>
         </TouchableOpacity>
     );
-};
-
-export default CustomButton;
+}
