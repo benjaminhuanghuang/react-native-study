@@ -26,3 +26,8 @@ Modify tailwind.config.js
 
 Modify babel.config.js
 
+add app.d.ts
+
+```bash
+    npx expo install expo-linear-gradient
+```
