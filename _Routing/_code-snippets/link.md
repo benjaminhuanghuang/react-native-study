@@ -19,6 +19,6 @@ import { Link, router, useLocalSearchParams} from "expo-router"
 
 
 // process parameter
-const {id} = useLocalSearchParams();
+const {id} = useLocalSearchParams<{id: string}>();
 
 ```
