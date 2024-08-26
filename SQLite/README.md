@@ -2,6 +2,5 @@
 
 ## Setup
 ```bash
-npx expo install expo-sqlite
-
+npx expo install expo-sqlite expo-file-system expo-asset
 ```

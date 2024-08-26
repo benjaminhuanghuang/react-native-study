@@ -9,5 +9,16 @@ sqlite3 -version
 
 sqlite3 mySQLiteDB.db
 
+npx expo install expo-sqlite expo-file-system expo-asset
+
 ```
 put mySQLiteDB.db under assets folder.
+
+
+
+## Coding
+```tsx
+import * as FileSystem from 'expo-file-system'
+
+
+```
