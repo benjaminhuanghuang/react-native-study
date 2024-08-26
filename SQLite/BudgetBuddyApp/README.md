@@ -8,4 +8,6 @@ https://github.com/betomoedano/Budget-Buddy-App
 sqlite3 -version
 
 sqlite3 mySQLiteDB.db
+
 ```
+put mySQLiteDB.db under assets folder.
