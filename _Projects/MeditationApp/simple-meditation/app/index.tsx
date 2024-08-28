@@ -2,7 +2,6 @@ import React from "react";
 import { View, Text, Image, ImageBackground } from "react-native";
 
 import beachImage from "@/assets/meditation-images/beach.webp";
-import { LinearGradient } from "expo-linear-gradient";
 import { SafeAreaView } from "react-native-safe-area-context";
 import CustomButton from "@/components/CustomButton";
 import { StatusBar } from "expo-status-bar";
@@ -39,7 +38,6 @@ export default function App() {
 
                         <StatusBar style="light" />
                     </SafeAreaView>
-
                 </AppGradient>
             </ImageBackground>
         </View>

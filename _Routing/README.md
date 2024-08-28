@@ -34,3 +34,39 @@ module.exports = function (api) {
   };
 };
 ```
+
+## Audio
+```bash
+npx expo install expo-av
+```
+
+```tsx
+import { Audio } from "expo-av";
+
+const [audioSound, setSound] = useState<Audio.Sound>();
+
+const initializeSound = async () => {
+    const audioFileName = MEDITATION_DATA[Number(id) - 1].audio;
+
+    const { sound } = await Audio.Sound.createAsync(
+        AUDIO_FILES[audioFileName]
+    );
+    setSound(sound);
+    return sound;
+};
+
+
+const togglePlayPause = async () => {
+  const sound = audioSound ? audioSound : await initializeSound();
+
+  const status = await sound?.getStatusAsync();
+
+  if (status?.isLoaded && !isPlayingAudio) {
+      await sound?.playAsync();
+      setPlayingAudio(true);
+  } else {
+      await sound?.pauseAsync();
+      setPlayingAudio(false);
+  }
+};
+```

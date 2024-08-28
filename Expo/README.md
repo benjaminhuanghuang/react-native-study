@@ -11,5 +11,9 @@ npx expo install expo-router react-native-safe-area-context react-native-screens
 
 Run app
 ```bash
+npm start
+ 
 npx expo start --clear   # run app and clear cache
 ```
+
+## Expo Router
