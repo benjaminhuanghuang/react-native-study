@@ -1,13 +1,21 @@
-import React from "react";
 import { View, Text, Image, ImageBackground } from "react-native";
+import React from "react";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { StatusBar } from "expo-status-bar";
+import CustomButton from "@/components/CustomButton";
+import AppGradient from "@/components/AppGradient";
+import { useRouter } from "expo-router";
+import Animated, {
+    FadeInDown,
+    FadeInUp,
+    withSpring,
+} from "react-native-reanimated";
 
 import beachImage from "@/assets/meditation-images/beach.webp";
-import { SafeAreaView } from "react-native-safe-area-context";
-import CustomButton from "@/components/CustomButton";
-import { StatusBar } from "expo-status-bar";
-import AppGradient from "@/components/AppGradient";
 
-export default function App() {
+const App = () => {
+    const router = useRouter();
+
     return (
         <View className="flex-1">
             <ImageBackground
@@ -18,29 +26,41 @@ export default function App() {
             >
                 <AppGradient
                     // Background Linear Gradient
-                    colors={["rgba(0,0,0,0.4)", "rgba(0,0,0,0.8)"]}>
+                    colors={["rgba(0,0,0,0.4)", "rgba(0,0,0,0.8)"]}
+                >
                     <SafeAreaView className="flex flex-1 px-1 justify-between">
-                        <View>
+                        <Animated.View
+                            entering={FadeInDown.delay(300)
+                                .mass(0.5)
+                                .stiffness(80)
+                                .springify(20)}
+                        >
                             <Text className="text-center text-white font-bold text-4xl">
                                 Simple Meditation
                             </Text>
                             <Text className="text-center text-white font-regular text-2xl mt-3">
                                 Simplifying Meditation for Everyone
                             </Text>
-                        </View>
-                        <View>
+                        </Animated.View>
+
+                        <Animated.View
+                            entering={FadeInDown.delay(300)
+                                .mass(0.5)
+                                .stiffness(80)
+                                .springify(20)}
+                        >
                             <CustomButton
-                                onPress={() => console.log("Button Pressed")}
+                                onPress={() => router.push("/nature-meditate")}
                                 title="Get Started"
-                                containerStyles="mt-10">
-                            </CustomButton>
-                        </View>
+                            />
+                        </Animated.View>
 
                         <StatusBar style="light" />
                     </SafeAreaView>
                 </AppGradient>
             </ImageBackground>
         </View>
-    )
-}
+    );
+};
 
+export default App;
