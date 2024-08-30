@@ -1,4 +1,12 @@
 
+## Link
+```tsx
+import { Link } from "expo-router"
+
+<Link href={{ pathname: '/details', params: { name: 'Dan' } }} asChild>
+    <Button title="Show Details" />
+</Link>
+```
 
 ```js
 import { Link, router, useLocalSearchParams} from "expo-router"

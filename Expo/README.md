@@ -1,9 +1,11 @@
-## Expo setup
+# Expo setup
 
+## Project setup 
 https://docs.expo.dev/router/installation/#manual-installation
 
 ```bash
 npx create-expo-app ./
+
 npx create-expo-app@latest simple-meditation
 
 npx expo install expo-router react-native-safe-area-context react-native-screens expo-linking expo-constants expo-status-bar
