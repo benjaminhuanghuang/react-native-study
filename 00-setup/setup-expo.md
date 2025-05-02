@@ -1,8 +1,7 @@
 # Setup Expo project
 
+<https://docs.expo.dev/tutorial/create-your-first-app/>
+
 ```sh
-npm install -g expo-cli
-
-expo init MyAwesomeApp
-
+npx create-expo-app@latest myapp
 ```
