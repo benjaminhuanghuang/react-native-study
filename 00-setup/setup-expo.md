@@ -4,4 +4,6 @@
 
 ```sh
 npx create-expo-app@latest myapp
+
+npx create-expo-app router-app -t tabs
 ```

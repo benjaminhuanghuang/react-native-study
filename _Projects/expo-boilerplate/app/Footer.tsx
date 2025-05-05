@@ -9,11 +9,15 @@ import {
 } from "react-native";
 import { AntDesign, Feather } from "@expo/vector-icons";
 
+const wiindowDimensions = Dimensions.get("window");
+const winHeight = wiindowDimensions.height;
+const smallLogo = require("../assets/logo.png");
+
 const Footer = () => {
   const logo = require("../assets/logo.png");
   return (
-    <View style={styles.header}>
-      <Image source={logo} style={styles.logo} />
+    <View style={styles.footer}>
+      <Image source={smallLogo} style={styles.smallLogoStyle} />
       <Text style={styles.menu}>Shop</Text>
       <Text style={styles.menu}>Contact</Text>
       <AntDesign style={styles.menu} name="search1" size={24} color="black" />
@@ -27,15 +31,22 @@ const Footer = () => {
   );
 };
 const styles = StyleSheet.create({
-  header: {
+  footer: {
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "#d77948",
     height: 80,
     width: "100%",
     flexDirection: "row",
+    ...Platform.select({
+      ios: {
+        paddingTop: 20,
+        paddingBottom: 20,
+        height: 80,
+      },
+    }),
   },
-  logo: {
+  smallLogoStyle: {
     height: 30,
     width: 95,
     marginLeft: 10,
