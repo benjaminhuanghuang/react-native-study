@@ -1,12 +1,12 @@
 import React from "react";
 import { View, Text } from "react-native";
 
-const register = () => {
+const Page = () => {
   return (
     <View>
-      <Text>Register</Text>
+      <Text>I'am in</Text>
     </View>
   );
 };
 
-export default register;
+export default Page;

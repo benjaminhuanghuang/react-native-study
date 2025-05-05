@@ -9,7 +9,7 @@ const Page = () => {
         source={{ uri: "https://galaxies.dev/img/logos/logo--blue.png" }}
         style={styles.image}
       />
-      <Link href="/(authenticated)/(tabs)/home" asChild>
+      <Link href="/home" asChild>
         <TouchableOpacity>
           <Text style={{ color: "#fff" }}>Login</Text>
         </TouchableOpacity>
