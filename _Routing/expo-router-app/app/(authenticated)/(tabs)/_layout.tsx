@@ -13,7 +13,7 @@ const Layout = () => {
         },
         headerTintColor: "#fff",
         headerRight: () => (
-          <Link href="/">
+          <Link href="/" replace>
             <Ionicons name="log-out-outline" size={24} color="#fff" />
           </Link>
         ),
