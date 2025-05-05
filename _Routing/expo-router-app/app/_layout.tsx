@@ -66,7 +66,7 @@ const InitialLayout = () => {
           }}
         />
         <Stack.Screen
-          name="home"
+          name="(authenticated)/(tabs)"
           options={{
             headerShown: false,
           }}

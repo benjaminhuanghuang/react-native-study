@@ -4,7 +4,7 @@ import { View, Text } from "react-native";
 const Page = () => {
   return (
     <View>
-      <Text>I'am in</Text>
+      <Text>Register</Text>
     </View>
   );
 };
