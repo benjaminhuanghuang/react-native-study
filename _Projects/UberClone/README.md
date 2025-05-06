@@ -4,12 +4,21 @@
 
 <https://github.com/adrianhajdin/uber>
 
+- TS
+- Tailwind
+- Map
+- PostgreSQL
+- Stripe
+
 ## Create project and run it
 
 ```bash
 npx create-expo-app ./
 
-npm start
+npm start ios
+
+# Clear cache
+npx expo start -c
 ```
 
 Install Expo on cell phone. Scan the bar code
@@ -19,12 +28,6 @@ Trouble shooting
 ```sh
 brew update
 brew install watchman
-```
-
-Clear cache
-
-```sh
-npx expo start -c
 ```
 
 ## Setup postgres
@@ -37,18 +40,9 @@ Create project and database
 
 <https://www.nativewind.dev/quick-starts/expo>
 
-```bash
-npm i nativewind
-npm i -D tailwindcss@3.3.2
+## Tailwind
 
-npx tailwindcss init
-```
-
-Modify tailwind.config.js
-Modify babel.config.js
-
-Add nativewind-env.d.ts for Typescript
-<https://www.nativewind.dev/getting-started/typescript>
+<https://docs.expo.dev/guides/tailwind/>
 
 ```bash
 npm i react-native-safe-area-context
@@ -58,7 +52,7 @@ npm i react-native-safe-area-context
 
 <https://docs.expo.dev/guides/using-eslint/>
 
-```
+```sh
 npx expo lint
 npx expo install -- --save-dev prettier eslint-config-prettier eslint-plugin-prettier
 ```
