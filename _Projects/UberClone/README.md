@@ -10,7 +10,11 @@
 - PostgreSQL
 - Stripe
 
-## Create project and run it
+## Setup
+
+### Create project
+
+<https://www.nativewind.dev/quick-starts/expo>
 
 ```bash
 npx create-expo-app ./
@@ -30,25 +34,31 @@ brew update
 brew install watchman
 ```
 
-## Setup postgres
+### Setup postgres
 
 <https://neon.tech/>
 
 Create project and database
 
-## Setup
+### Setup Tailwind3 with nativewind
 
-<https://www.nativewind.dev/quick-starts/expo>
-
-## Tailwind
-
-<https://docs.expo.dev/guides/tailwind/>
+<https://www.nativewind.dev/getting-started/installation>
 
 ```bash
-npm i react-native-safe-area-context
+npx expo install nativewind tailwindcss@3.4.17 react-native-reanimated@3.16.2 react-native-css-interop --dev
 ```
 
-## Setup lint and prettier
+add tailwind.config.js
+
+add babel.config.js
+
+add global.css
+
+add metro.config.js
+
+add nativewind-env.d.ts for typescript
+
+### Setup lint and prettier
 
 <https://docs.expo.dev/guides/using-eslint/>
 
@@ -58,3 +68,17 @@ npx expo install -- --save-dev prettier eslint-config-prettier eslint-plugin-pre
 ```
 
 update .eslintrc.js
+
+### Setup clerk
+
+Clerk (a user authentication service) for a React Native project,
+
+```sh
+npx expo install @clerk/clerk-expo expo-auth-session expo-random
+```
+
+### Setup navigation
+
+```sh
+npx expo install expo-location
+```
