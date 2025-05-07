@@ -77,7 +77,7 @@ Clerk (a user authentication service) for a React Native project,
 npx expo install @clerk/clerk-expo expo-auth-session expo-random
 ```
 
-### Setup navigation
+### Setup Expo router and navigation
 
 ```sh
 npx expo install expo-location
