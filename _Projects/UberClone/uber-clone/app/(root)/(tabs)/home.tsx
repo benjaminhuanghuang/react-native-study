@@ -75,6 +75,7 @@ const Home = () => {
 
   return (
     <SafeAreaView className="bg-general-500">
+      <Text>Home</Text>
       {/* <FlatList
         data={recentRides?.slice(0, 5)}
         renderItem={({ item }) => <RideCard ride={item} />}
