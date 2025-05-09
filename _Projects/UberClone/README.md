@@ -90,3 +90,15 @@ Swiper
 CustomButton
 
 ## 01:11:28 — SignUp, Sign
+
+<https://dashboard.clerk.com/apps/app_2lM8QzqxO3uzihSVfUqVxXjSzGA/instances/ins_2lM8R6O57M2nZF8Lg7CgygNfNqm>
+
+Install @clerk/clerk-expo expo-secure-store
+
+Create OAuth
+
+Create application on <https://dashboard.clerk.com>
+
+Create .env file
+
+Protect route

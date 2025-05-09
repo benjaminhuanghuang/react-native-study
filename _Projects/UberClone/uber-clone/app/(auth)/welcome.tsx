@@ -6,12 +6,22 @@ import Swiper from "react-native-swiper";
 
 import CustomButton from "@/components/CustomButton";
 import { onboarding } from "@/constants";
+
+import { useAuth } from "@clerk/clerk-react";
+
 export default function Welcome() {
+  const { isLoaded } = useAuth();
   const swiperRef = useRef<Swiper>(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
   const isLastSlide = activeIndex === onboarding.length - 1;
 
+  if (isLoaded)
+    return (
+      <SafeAreaView className="flex h-full items-center justify-center bg-white">
+        <Text className="text-black text-lg font-JakartaBold">Loading...</Text>
+      </SafeAreaView>
+    );
   return (
     <SafeAreaView className="flex h-full items-center justify-between bg-white">
       <TouchableOpacity
