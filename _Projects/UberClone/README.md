@@ -82,3 +82,11 @@ npx expo install @clerk/clerk-expo expo-auth-session expo-random
 ```sh
 npx expo install expo-location
 ```
+
+## 00:47:50 — Welcome
+
+Swiper
+
+CustomButton
+
+## 01:11:28 — SignUp, Sign
