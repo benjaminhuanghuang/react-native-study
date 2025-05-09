@@ -1,14 +1,9 @@
 import React from "react";
 import { View, Text } from "react-native";
+import { Redirect } from "expo-router";
 
 const Home = () => {
-  return (
-    <View className="flex-1 items-center bg-blue-400 rounded-xl">
-      <Text className="text-lg font-medium text-red-500">
-        Welcome to Tailwind!
-      </Text>
-    </View>
-  );
+  return <Redirect href="/(auth)/welcome" />;
 };
 
 export default Home;
