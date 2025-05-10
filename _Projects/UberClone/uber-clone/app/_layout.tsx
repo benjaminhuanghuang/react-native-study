@@ -1,22 +1,12 @@
-// import "react-native-url-polyfill/auto";
-
-import { ClerkLoaded, ClerkProvider, ClerkLoading } from "@clerk/clerk-expo";
+import { ClerkProvider, ClerkLoaded, useAuth } from "@clerk/clerk-expo";
 import { tokenCache } from "@clerk/clerk-expo/token-cache";
 
-import { Text } from "react-native";
-import {
-  DarkTheme,
-  DefaultTheme,
-  ThemeProvider,
-} from "@react-navigation/native";
 import { useFonts } from "expo-font";
-import { Stack } from "expo-router";
+import { Stack, Slot, useSegments, useRouter } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
-// import "react-native-reanimated";
-import "../global.css";
 
-const publishableKey = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY!;
+import "../global.css";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -41,20 +31,34 @@ export default function RootLayout() {
   if (!loaded) {
     return null;
   }
-  console.log("publishableKey: ", publishableKey);
+
   return (
     <ClerkProvider tokenCache={tokenCache}>
-      <ClerkLoading>
-        <Text>Loading...</Text>
-      </ClerkLoading>
-      <ClerkLoaded>
-        <Stack>
-          <Stack.Screen name="index" options={{ headerShown: false }} />
-          <Stack.Screen name="(auth)" options={{ headerShown: false }} />
-          <Stack.Screen name="(root)" options={{ headerShown: false }} />
-          <Stack.Screen name="+not-found" />
-        </Stack>
-      </ClerkLoaded>
+      <InitialLayout />
     </ClerkProvider>
   );
 }
+
+const InitialLayout = () => {
+  const { isLoaded, isSignedIn } = useAuth();
+  const segments = useSegments();
+  const router = useRouter();
+
+  useEffect(() => {
+    console.log({ isLoaded, isSignedIn });
+    if (!isLoaded) return;
+    console.log("isLoaded: ", isLoaded);
+
+    const inTabsGroup = segments[0] === "(auth)";
+
+    console.log("User changed: ", isSignedIn);
+
+    if (isSignedIn && !inTabsGroup) {
+      router.replace("/root");
+    } else if (!isSignedIn) {
+      router.replace("/login");
+    }
+  }, [isSignedIn]);
+
+  return <Slot />;
+};

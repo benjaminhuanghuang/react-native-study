@@ -1,9 +1,4 @@
-import {
-  ClerkLoading,
-  ClerkLoaded,
-  ClerkProvider,
-  useAuth,
-} from "@clerk/clerk-expo";
+import { ClerkProvider, useAuth } from "@clerk/clerk-expo";
 import { tokenCache } from "@clerk/clerk-expo/token-cache";
 import { Slot, useRouter, useSegments } from "expo-router";
 import { useEffect } from "react";
