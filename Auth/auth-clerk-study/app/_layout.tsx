@@ -1,0 +1,46 @@
+import {
+  ClerkLoading,
+  ClerkLoaded,
+  ClerkProvider,
+  useAuth,
+} from "@clerk/clerk-expo";
+import { tokenCache } from "@clerk/clerk-expo/token-cache";
+import { Slot, useRouter, useSegments } from "expo-router";
+import { useEffect } from "react";
+import * as SecureStore from "expo-secure-store";
+
+const publishableKey = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY!;
+
+const InitialLayout = () => {
+  // const { isLoaded, isSignedIn } = useAuth();
+  // const segments = useSegments();
+  // const router = useRouter();
+
+  // useEffect(() => {
+  //   console.log({ isLoaded, isSignedIn });
+  //   if (!isLoaded) return;
+  //   console.log("isLoaded: ", isLoaded);
+
+  //   const inTabsGroup = segments[0] === "(auth)";
+
+  //   console.log("User changed: ", isSignedIn);
+
+  //   if (isSignedIn && !inTabsGroup) {
+  //     router.replace("/home");
+  //   } else if (!isSignedIn) {
+  //     router.replace("/login");
+  //   }
+  // }, [isSignedIn]);
+
+  return <Slot />;
+};
+
+const RootLayout = async () => {
+  return (
+    <ClerkProvider publishableKey={publishableKey} tokenCache={tokenCache}>
+      <InitialLayout />
+    </ClerkProvider>
+  );
+};
+
+export default RootLayout;

@@ -1,4 +1,9 @@
-import { ClerkLoaded, ClerkProvider } from "@clerk/clerk-expo";
+// import "react-native-url-polyfill/auto";
+
+import { ClerkLoaded, ClerkProvider, ClerkLoading } from "@clerk/clerk-expo";
+import { tokenCache } from "@clerk/clerk-expo/token-cache";
+
+import { Text } from "react-native";
 import {
   DarkTheme,
   DefaultTheme,
@@ -10,7 +15,7 @@ import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
 // import "react-native-reanimated";
 import "../global.css";
-import { tokenCache } from "@/lib/auth";
+
 const publishableKey = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY!;
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
@@ -36,8 +41,12 @@ export default function RootLayout() {
   if (!loaded) {
     return null;
   }
+  console.log("publishableKey: ", publishableKey);
   return (
-    <ClerkProvider publishableKey={publishableKey}>
+    <ClerkProvider tokenCache={tokenCache}>
+      <ClerkLoading>
+        <Text>Loading...</Text>
+      </ClerkLoading>
       <ClerkLoaded>
         <Stack>
           <Stack.Screen name="index" options={{ headerShown: false }} />
