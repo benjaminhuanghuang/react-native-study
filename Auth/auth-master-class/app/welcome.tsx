@@ -9,12 +9,12 @@ export default function WelcomeScreen() {
     <View style={styles.container}>
       <Text style={styles.title}>Welcome screen</Text>
 
-      <Text>{isSignedIn ? "Authenticated" : "Not authenticated"}</Text>
+      {/* <Text>{isSignedIn ? "Authenticated" : "Not authenticated"}</Text>
       <Button title="Sign out" onPress={() => signOut()} />
 
       <Link href="/sign-in">Go to sign in</Link>
 
-      <Link href="/(protected)">Go to Protected Screens</Link>
+      <Link href="/(protected)">Go to Protected Screens</Link> */}
     </View>
   );
 }

@@ -1,6 +1,6 @@
 import { Slot, Redirect } from "expo-router";
 import { useAuth } from "@clerk/clerk-expo";
-import { ActivityIndicator, View } from "react-native";
+import { ActivityIndicator, View, Text } from "react-native";
 
 export default function ProtectedLayout() {
   console.log("Protected layout");
@@ -10,6 +10,7 @@ export default function ProtectedLayout() {
   if (!isLoaded) {
     return (
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+        <Text>Loading!!!...</Text>
         <ActivityIndicator />
       </View>
     );
