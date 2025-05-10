@@ -1,7 +1,7 @@
 import { ClerkProvider, useAuth } from "@clerk/clerk-expo";
-import { tokenCache } from "@clerk/clerk-expo/token-cache";
 import { Slot, useRouter, useSegments } from "expo-router";
 import { useEffect } from "react";
+import * as SecureStore from "expo-secure-store";
 
 const InitialLayout = () => {
   const { isLoaded, isSignedIn } = useAuth();
@@ -9,9 +9,7 @@ const InitialLayout = () => {
   const router = useRouter();
 
   useEffect(() => {
-    console.log({ isLoaded, isSignedIn });
     if (!isLoaded) return;
-    console.log("isLoaded: ", isLoaded);
 
     const inTabsGroup = segments[0] === "(auth)";
 
@@ -27,9 +25,26 @@ const InitialLayout = () => {
   return <Slot />;
 };
 
-const RootLayout = async () => {
+const tokenCache = {
+  async getToken(key: string) {
+    try {
+      return SecureStore.getItemAsync(key);
+    } catch (err) {
+      return null;
+    }
+  },
+  async saveToken(key: string, value: string) {
+    try {
+      return SecureStore.setItemAsync(key, value);
+    } catch (err) {
+      return;
+    }
+  },
+};
+
+const RootLayout = () => {
   return (
-    <ClerkProvider tokenCache={tokenCache}>
+    <ClerkProvider>
       <InitialLayout />
     </ClerkProvider>
   );
