@@ -30,3 +30,18 @@ Update package.json
     "preset": "jest-expo"
 },
 ```
+
+## Snapshot test
+
+```sh
+npm i -D react-test-renderer @types/react-test-renderer
+```
+
+## Testing Library
+
+```sh
+npm i -D @testing-library/react-native
+```
+
+- Test the text on UI
+- Test Event
