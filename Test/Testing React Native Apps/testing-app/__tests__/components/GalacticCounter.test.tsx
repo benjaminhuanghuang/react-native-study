@@ -5,22 +5,22 @@ import GalacticCounter from "../../components/GalacticCounter";
 describe("GalacticCounter", () => {
   it("Updates the content", async () => {
     render(<GalacticCounter />);
+    const user = userEvent.setup({
+      advanceTimers: jest.advanceTimersByTime,
+    });
+    jest.useFakeTimers();
+
     const addStarButton = screen.getByText("Add Star");
     const decreaseStarButton = screen.getByText("Decrease Star");
-    const title = screen.getByText("Galactic Counter");
 
-    expect(title).toBeTruthy();
-    expect(addStarButton).toBeTruthy();
-    expect(decreaseStarButton).toBeTruthy();
+    await user.press(addStarButton);
+    await user.press(addStarButton);
 
-    await userEvent.press(addStarButton);
-    const starsAfterAdd = screen.getByText("1");
-    expect(starsAfterAdd).toBeTruthy();
-    await userEvent.press(decreaseStarButton);
-    const starsAfterDecrease = screen.getByText("0");
-    expect(starsAfterDecrease).toBeTruthy();
-    await userEvent.press(decreaseStarButton);
-    const starsAfterDecrease2 = screen.getByText("-1");
-    expect(starsAfterDecrease2).toBeTruthy();
+    expect(screen.getByText("Stars: 2")).toBeTruthy();
+
+    await user.press(decreaseStarButton);
+    await user.press(decreaseStarButton);
+    await user.press(decreaseStarButton);
+    expect(screen.getByText("Stars: -1")).toBeTruthy();
   });
 });
