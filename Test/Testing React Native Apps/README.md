@@ -13,3 +13,20 @@ By Simon Grimm 03 April 2024
 🧪 Test components with React Testing Library
 📱 Mock modules and test fetch requests
 🤖 Run E2E tests with Maestro
+
+## Setup Jest
+
+```sh
+npm i -D jest jest-expo
+npm i --save-dev @types/jest
+```
+
+Update package.json
+
+```json
+"test": "jest --watchAll"
+  
+"jest": {
+    "preset": "jest-expo"
+},
+```
