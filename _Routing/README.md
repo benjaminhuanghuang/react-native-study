@@ -14,7 +14,7 @@ npx expo install expo-router react-native-safe-area-context react-native-screens
 
 set entry in package.json
 
-```
+```json
 "main": "expo-router/entry",
 ```
 
@@ -28,7 +28,7 @@ Add a deep linking scheme in your app.json:
 
 Modify babel.config.js
 
-```
+```js
 module.exports = function (api) {
   api.cache(true);
   return {
