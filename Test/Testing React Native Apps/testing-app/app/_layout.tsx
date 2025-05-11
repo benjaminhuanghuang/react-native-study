@@ -2,7 +2,7 @@ import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 import * as SlashScreen from "expo-splash-screen";
-import { use, useEffect } from "react";
+import { useEffect } from "react";
 
 export { ErrorBoundary } from "expo-router";
 
