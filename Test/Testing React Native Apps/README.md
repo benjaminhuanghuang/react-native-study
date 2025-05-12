@@ -46,3 +46,40 @@ npm i -D @testing-library/react-native
 - Test the text on UI
 - Test Event
 - Fetch data
+- Mock modules
+
+## E2e test
+
+Setup Maestro
+<https://docs.maestro.dev/getting-started/installing-maestro>
+
+```sh
+curl -fsSL "https://get.maestro.mobile.dev" | bash
+```
+
+Script
+
+```json
+"e2e": "maestro test --format junit --output maestro/results.xml "
+```
+
+maestro/test-app.yaml
+
+## Coverage
+
+Update package.json
+
+```json
+"jest": {
+"preset": "jest-expo",
+"collectCoverage": true,
+"collectCoverageFrom": [
+    "**/*.{js,jsx}",
+    "!**/coverage/**",
+    "!**/node_modules/**"
+    "!**/babel. config-js",
+    "!**/jest.setup.js"
+    ],
+"coverageReports": ["json", "html"]
+}
+```

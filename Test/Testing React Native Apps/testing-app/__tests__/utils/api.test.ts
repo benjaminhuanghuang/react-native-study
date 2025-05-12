@@ -20,7 +20,7 @@ describe("API", () => {
 
   test("Calls the right endpoint", async () => {
     const fetchMock = global.fetch as jest.MockedFunction<typeof global.fetch>;
-
+    // @ts-ignore
     fetchMock.mockResolvedValueOnce({
       json: jest.fn().mockResolvedValue([]),
     });

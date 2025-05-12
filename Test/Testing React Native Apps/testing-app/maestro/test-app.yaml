@@ -1,0 +1,7 @@
+appId: null
+---
+- tapOn: "Tab Two, tab, 2 of 2"
+- tapOn: "Load Products"
+- assertVisible:
+  id: "product-item"
+  index: 2
