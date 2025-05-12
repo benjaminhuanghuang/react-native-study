@@ -45,3 +45,4 @@ npm i -D @testing-library/react-native
 
 - Test the text on UI
 - Test Event
+- Fetch data
