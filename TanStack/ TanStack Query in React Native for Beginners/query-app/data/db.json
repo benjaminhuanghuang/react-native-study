@@ -1,0 +1,24 @@
+{
+    "todos": [
+        {
+            "id": 1,
+            "text": "Learn React Native",
+            "completed": false
+        },
+        {
+            "id": 2,
+            "text": "Build a Todo App",
+            "completed": true
+        },
+        {
+            "id": 3,
+            "text": "Explore TanStack Query",
+            "completed": false
+        },
+        {
+            "id": 4,
+            "text": "Deploy the App",
+            "completed": false
+        }
+    ]
+}
