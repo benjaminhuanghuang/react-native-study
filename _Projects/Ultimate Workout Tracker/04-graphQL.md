@@ -2,6 +2,6 @@
 
 ```sh
 
-npm i graphql-request
+npm i graphql graphql-request
 
 ```

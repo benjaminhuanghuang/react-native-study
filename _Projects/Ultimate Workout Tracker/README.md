@@ -1,9 +1,22 @@
-# Ultimate Workout Tracker
+# Building the Ultimate Workout Tracker with React Native & MongoDB
 
 <https://www.youtube.com/watch?v=3cD5UFWsNOA>
 <https://github.com/notJust-dev/Workouts>
+
+- GraphQL
+- MongoDB
+- Tanstack Query
+
+## Setup
 
 ```sh
 
 npx create-expo-app@latest workouts -t expo-template-blank-typescript
 ```
+
+Update tsconfig.json
+
+```json
+   "jsx": "react-native",
+```
+  

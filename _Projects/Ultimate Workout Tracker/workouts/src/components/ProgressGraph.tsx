@@ -1,5 +1,5 @@
-import { View, Text, StyleSheet } from 'react-native';
-import { LineGraph } from 'react-native-graph';
+import { View, Text, StyleSheet } from "react-native";
+import { LineGraph } from "react-native-graph";
 
 const idToDate = (id) => {
   const timestamp = parseInt(id.substr(0, 8), 16) * 1000;
@@ -28,13 +28,13 @@ const ProgressGraph = ({ sets = [] }) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'white',
+    backgroundColor: "white",
     padding: 10,
     borderRadius: 5,
     gap: 5,
   },
   graph: {
-    width: '100%',
+    width: "100%",
     height: 200,
   },
 });
