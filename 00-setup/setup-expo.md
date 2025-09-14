@@ -3,7 +3,12 @@
 <https://docs.expo.dev/tutorial/create-your-first-app/>
 
 ```sh
-npx create-expo-app@latest myapp
+npx create-expo-app@latest <app> -t blank
 
-npx create-expo-app router-app -t tabs
+npx create-expo-app@latest <app> -t expo-template-blank-typescript
+
+npx create-expo-app@latest <app>
+
+npx create-expo-app <app> -t tabs
+
 ```
