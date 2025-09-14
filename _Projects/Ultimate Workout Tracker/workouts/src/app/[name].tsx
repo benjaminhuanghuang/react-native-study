@@ -1,5 +1,5 @@
 /*
-  /{exerciseName}
+  /{exerciseName} ExerciseDetailsScreen 
 
 */
 import { View, Text, StyleSheet, ActivityIndicator } from "react-native";

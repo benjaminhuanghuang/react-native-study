@@ -1,6 +1,7 @@
 # Building the Ultimate Workout Tracker with React Native & MongoDB
 
 <https://www.youtube.com/watch?v=3cD5UFWsNOA>
+<https://www.youtube.com/live/7MbFDnR_6HM>
 <https://github.com/notJust-dev/Workouts>
 
 - GraphQL
