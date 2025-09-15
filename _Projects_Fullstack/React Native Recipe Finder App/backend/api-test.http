@@ -1,0 +1,17 @@
+###
+
+POST http://localhost:5001/api/favorites
+Content-Type: application/json
+
+{
+  "userId": "1",
+  "recipeId": "2",
+  "title": "Spaghetti Carbonara",
+  "image": "http://example.com/image.jpg",
+  "cookTime": "30 minutes",
+  "servings": "2"
+}
+
+
+### 
+GET http://localhost:5001/api/favorites/2
