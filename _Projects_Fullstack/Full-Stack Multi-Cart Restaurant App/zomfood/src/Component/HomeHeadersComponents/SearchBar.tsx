@@ -1,10 +1,11 @@
-import { View, Text, SafeAreaView, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
 import React from "react";
 import { useSharedContext } from "../../Context/SharedContext";
 import { interpolate, useAnimatedStyle } from "react-native-reanimated";
 import { Ionicons } from "@expo/vector-icons";
 import { Colors, Sizes } from "../../StylesComponent/Constant";
 import RollingText from "react-native-rolling-bar";
+import { headerStyle } from "../../StylesComponent/HeadersStyle";
 
 type Props = {};
 const placeHolderText: string[] = [
@@ -24,17 +25,16 @@ const SearchBar = (props: Props) => {
   // cont @3:35
   return (
     <View>
-      <SafeAreaView />
-      <View style={[headerStyl.flexRowBetween, { padding: 10 }]}>
+      <View style={[headerStyle.flexRowBetween, { padding: 10 }]}>
         <TouchableOpacity
-          style={headerStyl.searchBarContainer}
+          style={headerStyle.searchBarContainer}
           activeOpacity={0.75}
         >
           <Ionicons name="search" color={Colors.red} size={Sizes.xlg} />
           <RollingText
             defaultStyle={false}
             interval={3000}
-            customStyle={headerStyl.rollingTextContainer}
+            customStyle={headerStyle.rollingTextContainer}
           >
             {placeHolderText?.map((txt, id) => (
               <Text style={{ fontSize: 13, fontWeight: "bold" }} key={id}>

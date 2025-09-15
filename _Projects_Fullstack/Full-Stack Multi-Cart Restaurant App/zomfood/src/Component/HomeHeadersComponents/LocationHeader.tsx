@@ -1,11 +1,11 @@
-import { View, Text, SafeAreaView, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
 import React from "react";
 import Animated, {
   interpolate,
   useAnimatedStyle,
 } from "react-native-reanimated";
 import { useSharedContext } from "../../Context/SharedContext";
-import { headerStyl } from "../../StylesComponent/HeadersStyle";
+import { headerStyle } from "../../StylesComponent/HeadersStyle";
 import { Ionicons } from "@expo/vector-icons";
 import { Colors, Sizes } from "../../StylesComponent/Constant";
 
@@ -25,24 +25,23 @@ const LocationHeader = () => {
   });
   return (
     <Animated.View style={[animOpacity]}>
-      <SafeAreaView />
-      <View style={headerStyl.locationContainer}>
-        <View style={headerStyl.locationContainer}>
+      <View style={headerStyle.locationContainer}>
+        <View style={headerStyle.locationContainer}>
           <Ionicons name="location" size={Sizes.xxl} color={Colors.red} />
           <View>
-            <TouchableOpacity style={headerStyl.userNameContainer}>
-              <Text style={headerStyl.userName}>riyo</Text>
+            <TouchableOpacity style={headerStyle.userNameContainer}>
+              <Text style={headerStyle.userName}>riyo</Text>
               <Ionicons
                 name="chevron-down"
                 color={Colors.black}
                 size={Sizes.s}
               />
             </TouchableOpacity>
-            <Text style={headerStyl.userLocationText}>north Indian</Text>
+            <Text style={headerStyle.userLocationText}>north Indian</Text>
           </View>
         </View>
-        <View style={headerStyl.menuBarContainer}>
-          <TouchableOpacity style={headerStyl.userNameContainer}>
+        <View style={headerStyle.menuBarContainer}>
+          <TouchableOpacity style={headerStyle.userNameContainer}>
             <Ionicons name="menu" color={Colors.black} size={Sizes.xxl} />
           </TouchableOpacity>
         </View>
