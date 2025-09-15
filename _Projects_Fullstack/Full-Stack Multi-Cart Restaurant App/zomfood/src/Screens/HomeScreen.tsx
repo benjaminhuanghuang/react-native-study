@@ -10,3 +10,5 @@ const HomeScreen = (props: Props) => {
     </View>
   );
 };
+
+export default HomeScreen;
