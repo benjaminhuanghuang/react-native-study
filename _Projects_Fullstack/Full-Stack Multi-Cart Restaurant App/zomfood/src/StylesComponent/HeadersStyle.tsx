@@ -19,7 +19,7 @@ export const flexRowGapCntr: ViewStyle = {
   gap: 10,
 };
 
-export const headerStyl = StyleSheet.create({
+export const headerStyle = StyleSheet.create({
   flexRowBetween,
   homeContainer: {
     flex: 1,

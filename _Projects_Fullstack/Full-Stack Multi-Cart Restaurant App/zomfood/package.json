@@ -9,10 +9,7 @@
     "web": "expo start --web"
   },
   "dependencies": {
-    "expo": "~54.0.7",
-    "expo-status-bar": "~3.0.8",
-    "react": "19.1.0",
-    "react-native": "0.81.4",
+    "@expo/vector-icons": "^15.0.2",
     "@react-native-async-storage/async-storage": "^2.1.2",
     "@react-navigation/bottom-tabs": "^7.2.0",
     "@react-navigation/native": "^7.0.14",
@@ -20,10 +17,14 @@
     "@reduxjs/toolkit": "^2.6.0",
     "@stripe/stripe-react-native": "^0.42.0",
     "axios": "^1.8.1",
+    "expo": "~54.0.7",
     "expo-constants": "^17.0.7",
     "expo-location": "^18.0.7",
+    "expo-status-bar": "~3.0.8",
     "jwt-decode": "^4.0.0",
     "lottie-react-native": "^7.1.0",
+    "react": "19.1.0",
+    "react-native": "0.81.4",
     "react-native-animated-number": "^1.2.0",
     "react-native-maps": "^1.18.0",
     "react-native-modals": "^0.22.3",
@@ -38,10 +39,10 @@
     "redux-persist": "^6.0.0"
   },
   "devDependencies": {
-    "@types/react": "~19.1.0",
-    "typescript": "~5.9.2",
     "@types/jwt-decode": "^2.2.1",
-    "@types/react-native-vector-icons": "^6.4.18"
+    "@types/react": "~19.1.0",
+    "@types/react-native-vector-icons": "^6.4.18",
+    "typescript": "~5.9.2"
   },
   "private": true
 }
