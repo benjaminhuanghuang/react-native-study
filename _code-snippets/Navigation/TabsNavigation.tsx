@@ -3,8 +3,12 @@ import {
   createBottomTabNavigator,
 } from "@react-navigation/bottom-tabs";
 import { CompositeScreenProps } from "@react-navigation/native";
-import HomeScreen from "../Screens/HomeScreen";
 import { RootStackScreenProps } from "./RootNavigation";
+// Screens
+import HomeScreen from "../Screens/HomeScreen";
+import CartScreen from "../Screens/CartScreen";
+import ProfileScreen from "../Screens/ProfileScreen";
+import Settings from "../Screens/Settings";
 
 export type TabsStackParams = {
   Home: undefined;
@@ -35,6 +39,23 @@ const TabNavigator = () => {
         component={HomeScreen}
         options={{ headerShown: false }}
       />
+      <TabsStack.Screen
+        name="Cart"
+        component={CartScreen}
+        options={{ headerShown: false }}
+      />
+      <TabsStack.Screen
+        name="Profile"
+        component={ProfileScreen}
+        options={{ headerShown: false }}
+      />
+      <TabsStack.Screen
+        name="Settings"
+        component={Settings}
+        options={{ headerShown: false }}
+      />
     </TabsStack.Navigator>
   );
 };
+
+export default TabNavigator;

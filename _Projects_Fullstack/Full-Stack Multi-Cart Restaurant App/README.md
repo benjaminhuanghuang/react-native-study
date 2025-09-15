@@ -53,4 +53,4 @@ npm i -D  @types/jwt-decode@^2.2.1 @types/react-native-vector-icons@^6.4.18
  
 ```
 
-
+## RootNav and TabsNav Settings with type ⭐️

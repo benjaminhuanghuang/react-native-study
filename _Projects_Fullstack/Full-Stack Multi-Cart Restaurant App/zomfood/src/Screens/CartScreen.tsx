@@ -2,14 +2,12 @@ import React from "react";
 import { View, Text } from "react-native";
 import { TabsStackScreenProps } from "../Navigation/TabsNavigation";
 
-type Props = {};
-
-const HomeScreen = ({ navigation, route }: TabsStackScreenProps<"Home">) => {
+const CartScreen = ({ navigation, route }: TabsStackScreenProps<"Cart">) => {
   return (
     <View>
-      <Text>HomeScreen</Text>
+      <Text>CartScreen</Text>
     </View>
   );
 };
 
-export default HomeScreen;
+export default CartScreen;
