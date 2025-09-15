@@ -6,7 +6,7 @@ type Props = {};
 
 const HomeScreen = ({ navigation, route }: TabsStackScreenProps<"Home">) => {
   return (
-    <View>
+    <View style={hea}>
       <Text>HomeScreen</Text>
     </View>
   );
