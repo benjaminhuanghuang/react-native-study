@@ -6,21 +6,41 @@ import {
 } from "react-native-reanimated/lib/typescript/Animated";
 import { createNavigatorFactory } from "@react-navigation/native";
 import FoodCard from "./FoodCard";
+import useFetchAllFrequentFood from "../../Hooks/fetchFrequentFood";
+import {
+  frequentFoodParams,
+  renderFoodItemParams,
+} from "../../TypesCheck/HomeProp";
 
 type Props = {};
 
 const FrequentFood = (props: Props) => {
-  const renderFoodItem = () => {
-    return <FoodCard />;
+  const { food } = useFetchAllFrequentFood();
+
+  const renderFoodItem = ({ item }: renderFoodItemParams) => {
+    return (
+      <FoodCard
+        foodProps={{
+          _id: item._id,
+          name: item.name,
+          imageUrl: item.imageUrl,
+          onPress: item.onPress,
+        }}
+        foodStyleProps={{
+          width: 60,
+          height: 60,
+          borderRadius: 99,
+          resizeMode: "contain",
+        }}
+      />
+    );
   };
+
   return (
     <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-      <FlatList
-        data={createNavigatorFactory(FrequentFood)}
-        renderItem={renderFoodItem}
-      />
+      <FlatList data={food} renderItem={renderFoodItem} />
     </ScrollView>
-  );   
+  );
 };
 
 export default FrequentFood;
