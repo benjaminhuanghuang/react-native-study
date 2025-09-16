@@ -38,7 +38,14 @@ const FrequentFood = (props: Props) => {
 
   return (
     <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-      <FlatList data={food} renderItem={renderFoodItem} />
+      <FlatList
+        data={food}
+        renderItem={renderFoodItem}
+        numColumns={Math.ceil(food.length / 2)}
+        key={Math.ceil(food.length / 2).toString()}
+        pagingEnabled={false}
+        keyExtractor={(item: frequentFoodParams) => item._id}
+      />
     </ScrollView>
   );
 };
