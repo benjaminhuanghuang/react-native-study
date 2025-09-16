@@ -3,12 +3,12 @@ import React from "react";
 
 type Props = {};
 
-const FrequentFoot = (props: Props) => {
+const FoodCard = (props: Props) => {
   return (
     <View>
-      <Text>FrequentFoot</Text>
+      <Text>FoodCard</Text>
     </View>
   );
 };
 
-export default FrequentFoot;
+export default FoodCard;

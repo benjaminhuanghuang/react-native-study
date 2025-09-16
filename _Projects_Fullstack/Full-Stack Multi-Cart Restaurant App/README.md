@@ -1,6 +1,7 @@
 # React Native Full-Stack Multi-Cart Restaurant App with MongoDB | Zomato App Clone
 
 <https://www.youtube.com/watch?v=YBev9Z2njHk>
+<https://github.com/labkin/React_Native_Zomato_APP_Starter_Template/tree/main/ZomatoAppStarterTemplate>
 
 - Redux toolkit
 - MongoDB
