@@ -4,7 +4,7 @@ import {
   getFrequentFood,
 } from "../Controllers/FrequentFoodController";
 import multer from "multer";
-import path from "path/win32";
+import path from "path";
 import { getActiveResourcesInfo } from "process";
 
 const router = express.Router();
