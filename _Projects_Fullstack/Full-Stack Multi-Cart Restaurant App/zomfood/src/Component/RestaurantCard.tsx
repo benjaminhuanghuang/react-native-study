@@ -32,7 +32,7 @@ const RestaurantCard = ({ item }: RestaurantCardProps) => {
               {item?.name}
             </Text>
           </View>
-          <StarRating />
+          <StarRating rating={item.rating} />
         </View>
       </View>
     </Pressable>

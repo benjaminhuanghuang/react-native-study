@@ -9,6 +9,7 @@ import HomeScreen from "../Screens/HomeScreen";
 import CartScreen from "../Screens/CartScreen";
 import ProfileScreen from "../Screens/ProfileScreen";
 import Settings from "../Screens/Settings";
+import CustomTabBar from "./TabsComponents/CustomTabBar";
 
 export type TabsStackParams = {
   Home: undefined;
@@ -28,6 +29,7 @@ export type TabsStackScreenProps<T extends keyof TabsStackParams> =
 const TabNavigator = () => {
   return (
     <TabsStack.Navigator
+      tabBar={(props) => <CustomTabBar {...props} />}
       screenOptions={{
         tabBarShowLabel: false,
         tabBarHideOnKeyboard: true,

@@ -17,4 +17,22 @@ export interface restaurantParams {
   coords: coordsParams;
 }
 
-export interface renderRestaurantParams {}
+export interface renderRestaurantParams {
+  item: restaurantParams;
+}
+
+export interface fetchRestaurantParams {
+  data: {
+    result: restaurantParams[];
+  };
+}
+
+export interface filterTab {
+  _id: string;
+  title: string;
+}
+
+export interface menuFilterParams {
+  filterLabel: string;
+  tabList: filterTab[];
+}
