@@ -1,17 +1,56 @@
-import { View, Text } from "react-native";
-import React from "react";
+import { View, Text, LayoutAnimation, LayoutChangeEvent } from "react-native";
+import React, { useEffect } from "react";
 import { BottomTabBarProps } from "@react-navigation/bottom-tabs";
-import Animated from "react-native-reanimated";
+import Animated, {
+  useAnimatedStyle,
+  useSharedValue,
+  withTiming,
+} from "react-native-reanimated";
 import { Colors } from "../../StylesComponent/Constant";
 import TabCard from "./TabCard";
+import { useSharedContext } from "../../Context/SharedContext";
 
 const CustomTabBar = ({
   state,
   descriptors,
   navigation,
 }: BottomTabBarProps) => {
+  const { scrollY } = useSharedContext();
   const [dimension, setDimension] = React.useState({ width: 20, height: 100 });
   const indicatorWidth = dimension.width / state.routes.length;
+
+  const onTabBarLayout = (e: LayoutChangeEvent) => {
+    setDimension({
+      height: e.nativeEvent.layout.height,
+      width: e.nativeEvent.layout.width,
+    });
+  };
+  const tabPositionX = useSharedValue(0);
+
+  useEffect(() => {
+    tabPositionX.value = withTiming(indicatorWidth * 3.8 * state.index, {
+      duration: 300,
+    });
+  }, [state.index]);
+
+  const animatedStyle = useAnimatedStyle(() => {
+    return {
+      transform: [{ translateX: tabPositionX.value }],
+    };
+  });
+
+  const transYAnim = useAnimatedStyle(() => {
+    return {
+      transform: [
+        {
+          translateX:
+            scrollY.value === 1
+              ? withTiming(100, { duration: 300 })
+              : withTiming(1, { duration: 300 }),
+        },
+      ],
+    };
+  });
 
   return (
     <Animated.View
@@ -43,6 +82,7 @@ const CustomTabBar = ({
             height: 5,
             width: indicatorWidth * 2,
           },
+          animatedStyle,
         ]}
       />
       <View
