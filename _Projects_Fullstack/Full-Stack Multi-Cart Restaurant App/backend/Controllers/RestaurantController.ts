@@ -9,7 +9,7 @@ export const createRestaurant = async (req: Request, res: Response) => {
 
   const files = req.files as [Express.Multer.File];
 
-  const path = "http://localhost:8082/assets/"; // This should ideally come from a config file
+  const path = "http://localhost:8004/assets/";
   const imageUrl = files.map((file) => {
     return path + file.filename;
   });

@@ -1,6 +1,5 @@
 ###
 POST http://localhost:8004/frequent/createFrequentFood
-
 Content-Type: application/json
 
 {
