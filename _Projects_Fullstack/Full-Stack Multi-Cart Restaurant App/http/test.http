@@ -1,5 +1,21 @@
 ###
 POST http://localhost:8004/frequent/createFrequentFood
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Pizza
+--WebAppBoundary
+Content-Disposition: form-data; name="files"; filename="pizza.jpg"
+Content-Type: image/jpeg
+
+< ./backend/assets/food-1050813_1280.jpg
+--WebAppBoundary--
+
+
+####
+POST http://localhost:8004/frequent/createFrequentFood
 Content-Type: application/json
 
 {
