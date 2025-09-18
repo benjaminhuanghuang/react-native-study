@@ -1,10 +1,5 @@
-import { View, Text } from "react-native";
 import React from "react";
-import {
-  FlatList,
-  ScrollView,
-} from "react-native-reanimated/lib/typescript/Animated";
-import { createNavigatorFactory } from "@react-navigation/native";
+import { FlatList, ScrollView } from "react-native";
 import FoodCard from "./FoodCard";
 import useFetchAllFrequentFood from "../../Hooks/fetchFrequentFood";
 import {
@@ -12,9 +7,7 @@ import {
   renderFoodItemParams,
 } from "../../TypesCheck/HomeProp";
 
-type Props = {};
-
-const FrequentFood = (props: Props) => {
+const FrequentFood = () => {
   const { food } = useFetchAllFrequentFood();
 
   const renderFoodItem = ({ item }: renderFoodItemParams) => {
