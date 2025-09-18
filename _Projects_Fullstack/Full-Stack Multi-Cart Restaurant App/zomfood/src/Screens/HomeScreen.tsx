@@ -1,27 +1,41 @@
 import React from "react";
-import { View, Text, Platform, SectionList } from "react-native";
+import { View, Platform, Animated } from "react-native";
 import { TabsStackScreenProps } from "../Navigation/TabsNavigation";
 import { headerStyle } from "../StylesComponent/HeadersStyle";
 import { SafeAreaView } from "react-native-safe-area-context";
-import HeadersComponent from "../Component/HomeHeadersComponents/HeadersComponent";
+import HeadersComponent from "../Component/HomeHeader/HeadersComponent";
 import SectionListContent from "../Component/HomeSectionList/SectionListContent";
 import { useSharedContext } from "../Context/SharedContext";
-import { useAnimatedStyle } from "react-native-reanimated";
-
-type Props = {};
+import {
+  Extrapolation,
+  interpolate,
+  useAnimatedStyle,
+} from "react-native-reanimated";
 
 const HomeScreen = ({ navigation, route }: TabsStackScreenProps<"Home">) => {
   const { globalScrollY } = useSharedContext();
-  const scrollingUpAnim = useAnimatedStyle();
+  const scrollingUpAnim = useAnimatedStyle(() => {
+    const transY = interpolate(
+      globalScrollY.value,
+      [0, 50],
+      [0, -50],
+      Extrapolation.CLAMP
+    );
+    return {
+      transform: [{ translateY: transY }],
+    };
+  });
   return (
     <View style={headerStyle.homeContainer}>
       <SafeAreaView style={{ paddingTop: Platform.OS === "android" ? 40 : 0 }}>
-        <View style={headerStyle.homeHeader}>
-          <HeadersComponent />
-        </View>
-        <View>
+        <Animated.View style={[scrollingUpAnim]}>
+          <View style={headerStyle.homeHeader}>
+            <HeadersComponent />
+          </View>
+        </Animated.View>
+        <Animated.View style={[scrollingUpAnim]}>
           <SectionListContent />
-        </View>
+        </Animated.View>
       </SafeAreaView>
     </View>
   );

@@ -10,10 +10,15 @@ import React, { useRef } from "react";
 import FrequentFoodSection from "./FrequentFoodSection";
 import RestaurantSection from "./RestaurantSection";
 import { secStyl } from "../../StylesComponent/SectionListStyles";
-import Animated, { withTiming } from "react-native-reanimated";
+import Animated, {
+  useAnimatedStyle,
+  withTiming,
+} from "react-native-reanimated";
 import MenuFilterTab from "./MenuFilterTab";
-import { filterTableList } from "../../Data/filtertablelist";
+import { filterTableList } from "../../Data/filterTableList";
 import { useSharedContext } from "../../Context/SharedContext";
+import GotoTopButton from "../HomeHeader/GotoTopButton";
+import { gotoTopStyles } from "../../StylesComponent/CardStyle";
 
 const sectionListData = [
   {
@@ -68,35 +73,83 @@ const SectionListContent = () => {
     setIsRestaurantSection(isRestaurantSection);
   };
 
+  const handleScrollToTop = () => {
+    gotoTop();
+    if (sectionListRef.current) {
+      sectionListRef.current.scrollToLocation({
+        animated: true,
+        itemIndex: 0,
+        sectionIndex: 0,
+        viewPosition: 0,
+      });
+    }
+  };
+
+  const animGotoTop = useAnimatedStyle(() => {
+    const isScrollingUp =
+      globalScrollY.value < scrollToTopPreviousValue.current;
+
+    const opacity = withTiming(
+      isScrollingUp && (isRestaurantSection || nearEnd) ? 1 : 0,
+      { duration: 300 }
+    );
+
+    const transY = withTiming(
+      isScrollingUp && (isRestaurantSection || nearEnd) ? 1 : 10,
+      { duration: 300 }
+    );
+
+    scrollToTopPreviousValue.current = globalScrollY.value;
+
+    return { opacity, transform: [{ translateY: transY }] };
+  });
+
+  const gotoTop = async () => {
+    scrollY.value = withTiming(0, { duration: 300 });
+    sectionListRef.current?.scrollToLocation({
+      animated: true,
+      itemIndex: 0,
+      sectionIndex: 0,
+      viewPosition: 0,
+    });
+  };
+
   return (
-    <SectionList
-      ref={sectionListRef}
-      sections={sectionListData}
-      keyExtractor={(item, index) => index.toString()}
-      contentContainerStyle={secStyl.sectionListContainer}
-      onScroll={handleScroll}
-      scrollEventThrottle={16}
-      renderSectionHeader={({ section }) => {
-        if (section.title !== "Restaurant") {
-          return null;
-        }
-        return (
-          <Animated.View
-            style={[
-              isRestaurantSection || nearEnd ? secStyl.stickyHeaderBg : null,
-            ]}
-          >
-            <MenuFilterTab filterLabel="Sort" tabList={filterTableList} />
-          </Animated.View>
-        );
-      }}
-      bounces={false}
-      overScrollMode="always"
-      nestedScrollEnabled={false}
-      stickySectionHeadersEnabled={true}
-      onViewableItemsChanged={onViewableItemsChanged}
-      viewabilityConfig={viewabilityConfig}
-    />
+    <>
+      <Animated.View
+        style={[animGotoTop, gotoTopStyles.gotoTopButtonContainer]}
+      >
+        <GotoTopButton onPress={handleScrollToTop} />
+      </Animated.View>
+      <SectionList
+        ref={sectionListRef}
+        sections={sectionListData}
+        keyExtractor={(item, index) => index.toString()}
+        contentContainerStyle={secStyl.sectionListContainer}
+        onScroll={handleScroll}
+        scrollEventThrottle={16}
+        renderSectionHeader={({ section }) => {
+          if (section.title !== "Restaurant") {
+            return null;
+          }
+          return (
+            <Animated.View
+              style={[
+                isRestaurantSection || nearEnd ? secStyl.stickyHeaderBg : null,
+              ]}
+            >
+              <MenuFilterTab filterLabel="Sort" tabList={filterTableList} />
+            </Animated.View>
+          );
+        }}
+        bounces={false}
+        overScrollMode="always"
+        nestedScrollEnabled={false}
+        stickySectionHeadersEnabled={true}
+        onViewableItemsChanged={onViewableItemsChanged}
+        viewabilityConfig={viewabilityConfig}
+      />
+    </>
   );
 };
 
