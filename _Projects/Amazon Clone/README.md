@@ -7,3 +7,11 @@
 npx create-expo-app@latest .
 npm run reset-project
 ```
+
+## Modify app.json
+
+## Redux
+
+```sh
+nmp i react-redux redux-persist
+```

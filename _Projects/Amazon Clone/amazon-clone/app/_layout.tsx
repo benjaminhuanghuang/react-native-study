@@ -11,6 +11,7 @@ import { supabase } from "@/supabase";
 import { ActivityIndicator, AppState, View } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { PersistGate } from "redux-persist/integration/react";
+
 SplashScreen.preventAutoHideAsync();
 
 AppState.addEventListener("change", (state) => {
