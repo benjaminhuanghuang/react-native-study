@@ -17,6 +17,7 @@ export default function Home() {
   const navigation = useNavigation();
   const session = useSelector((state: RootState) => state.auth.session);
   const [deals, setDeals] = useState<Product[]>([]);
+
   const tabs: HeaderTabsProps["tabs"] = [
     {
       active: true,
@@ -32,6 +33,7 @@ export default function Home() {
       onPress: () => Alert.alert("Video"),
     },
   ];
+
   const getDeals = useCallback(async () => {
     try {
       const { data = [] } = await supabase.from("products").select("*");
@@ -40,6 +42,7 @@ export default function Home() {
       console.log("Error", error);
     }
   }, []);
+
   useEffect(() => {
     navigation.setOptions({
       headerSearchShown: true,
@@ -47,10 +50,12 @@ export default function Home() {
     });
     getDeals();
   }, []);
+
   const onProductPress = ({ id }: Product) => {
     router.push(`/product/${id}`);
   };
   const onClickAuth = () => router.push("/(auth)");
+
   return (
     <ScrollView
       scrollEnabled

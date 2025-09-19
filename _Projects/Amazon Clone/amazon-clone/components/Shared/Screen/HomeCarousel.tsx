@@ -27,10 +27,12 @@ const images = [
   IMG_CS_07,
 ];
 const { width } = Dimensions.get("window");
+
 export default function HomeCarousel() {
   const ref = useRef<FlatList>(null);
   const currentIndex = useRef(0);
   const [activeIndex, setActiveIndex] = useState(0);
+
   useEffect(() => {
     const interval = setInterval(() => {
       const nextIndex = (currentIndex.current + 1) % images.length;
@@ -38,12 +40,14 @@ export default function HomeCarousel() {
     }, 3000);
     return () => clearInterval(interval);
   }, []);
+
   const handleScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
     const offsetX = event.nativeEvent.contentOffset.x;
     const index = Math.round(offsetX / width);
     currentIndex.current = index;
     setActiveIndex(index);
   };
+
   return (
     <View>
       <FlatList
@@ -79,6 +83,7 @@ export default function HomeCarousel() {
     </View>
   );
 }
+
 const styles = StyleSheet.create({
   dotsContainer: {
     position: "absolute",
