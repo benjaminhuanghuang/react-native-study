@@ -1,5 +1,9 @@
 # React Native Full Course 2025 | Become a React Native Pro in 4 Hours
 
+by PedroTech
+
+<https://github.com/machadop1407/react-native-course-habit-tracker>
+
 ```sh
 npx create-expo-app .
 
