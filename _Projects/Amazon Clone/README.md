@@ -10,8 +10,24 @@ npm run reset-project
 
 ## Modify app.json
 
+## Load and use font
+
+app/_layout.tsx
+
 ## Redux
 
 ```sh
-nmp i react-redux redux-persist
+nmp i react-redux @reduxjs/toolkit redux-persist
+```
+
+## Store
+
+```sh
+npm i @react-native-async-storage/async-storage
+```
+
+## DB
+
+```sh
+npm install @supabase/supabase-js
 ```

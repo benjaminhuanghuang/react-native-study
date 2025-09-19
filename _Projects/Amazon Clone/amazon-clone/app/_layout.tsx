@@ -12,6 +12,11 @@ import { ActivityIndicator, AppState, View } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { PersistGate } from "redux-persist/integration/react";
 
+/*
+Prevents the splash screen from auto-hiding.
+keep the splash screen visible until you manually call SplashScreen.hideAsync()
+To load fonts ro fetch data
+*/
 SplashScreen.preventAutoHideAsync();
 
 AppState.addEventListener("change", (state) => {

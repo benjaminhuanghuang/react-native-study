@@ -28,6 +28,7 @@ export default function TabLayout() {
     };
     fetchCount();
   }, [session?.user.id]);
+
   const tabs: Tab[] = [
     {
       name: "index",
