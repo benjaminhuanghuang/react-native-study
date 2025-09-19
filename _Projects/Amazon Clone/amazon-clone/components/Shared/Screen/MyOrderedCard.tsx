@@ -30,6 +30,7 @@ export default function MyOrderedCard({ order }: { order: Order }) {
       }
     }
   };
+  
   return (
     <View
       style={{

@@ -67,12 +67,14 @@ export default function Cart() {
   useEffect(() => {
     getUserAddress();
   }, [addressData]);
+
   useEffect(() => {
     navigation.setOptions({
       headerSearchShown: true,
       headerTabsProps: { tabs },
     });
   }, [navigation]);
+
   return (
     <ScrollView
       style={styles.container}

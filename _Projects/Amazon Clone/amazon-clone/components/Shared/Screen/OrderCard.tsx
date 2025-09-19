@@ -41,7 +41,7 @@ export default function OrderCard({ order }: { order: Order }) {
           {order.is_shipped ? (
             <Text style={{ color: "green" }}>Product Shipped</Text>
           ) : (
-            <Text>Oreder pending..</Text>
+            <Text>Order pending..</Text>
           )}
         </View>
       </View>
