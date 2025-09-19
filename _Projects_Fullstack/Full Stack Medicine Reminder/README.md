@@ -12,8 +12,10 @@ npx expo install expo-notifications
 
 npm i @react-navigation/native
 
-npm i expo-blur react-native-reanimated
+npm i expo-blur react-native-reanimated expo-linear-gradient
 
 npx expo install @react-native-async-storage/async-storage
+
+npm i @react-native-community/datetimepicker
 
 ```
