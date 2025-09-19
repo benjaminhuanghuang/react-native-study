@@ -3,12 +3,3 @@
 <https://www.youtube.com/watch?v=fLIl6jypzkI>
 
 <https://github.com/burakorkmez/react-native-recipe-app>
-
-## Auth
-
-Create application on
-
-```sh
-npm install @clerk/clerk-expo
-
-```
