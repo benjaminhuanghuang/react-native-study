@@ -23,7 +23,7 @@ export const imageUpload = async (imageUri: string | null) => {
   );
   if (!response.ok) {
     const text = await response.text();
-    console.error("Uplaod error response:", text);
+    console.error("Upload error response:", text);
     throw new Error("Upload failed");
   }
   const { data: publicData } = supabase.storage

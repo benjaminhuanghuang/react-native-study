@@ -5,13 +5,17 @@ export function useDebouncedCallback<T>(
   dependencies: T[],
   timeout: number
 ) {
-  const timer = useRef<NodeJS.Timeout>();
+  const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
-    clearTimeout(timer.current);
+    if (timer.current) {
+      clearTimeout(timer.current);
+    }
     timer.current = setTimeout(callback, timeout);
     return () => {
-      clearTimeout(timer.current);
+      if (timer.current) {
+        clearTimeout(timer.current);
+      }
     };
-  }, dependencies);
+  }, [...dependencies, timeout, callback]);
 }
