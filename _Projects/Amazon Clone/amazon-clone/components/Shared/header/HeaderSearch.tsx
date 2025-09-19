@@ -26,6 +26,7 @@ export default function HeaderSearch() {
     [query],
     500
   );
+
   return (
     <View
       style={{

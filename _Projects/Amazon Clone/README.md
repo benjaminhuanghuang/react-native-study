@@ -3,6 +3,8 @@
 <https://www.youtube.com/watch?v=QE1UPaGl6wI>
 <https://github.com/Somnath6Das/Amazon-ReactNativeExpo-ReduxToolkitPersist-Supabase>
 
+- Redux
+
 ```sh
 npx create-expo-app@latest .
 npm run reset-project
