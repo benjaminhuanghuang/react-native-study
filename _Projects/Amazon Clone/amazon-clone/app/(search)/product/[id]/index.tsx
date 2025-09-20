@@ -10,6 +10,7 @@ import { useCallback, useEffect, useState } from "react";
 import { Image, Modal, Text, TouchableOpacity, View } from "react-native";
 import { FlatList, ScrollView } from "react-native-gesture-handler";
 import { useDispatch } from "react-redux";
+
 export default function ProductPage() {
   const { id } = useLocalSearchParams();
   const dispatch = useDispatch();
@@ -39,7 +40,9 @@ export default function ProductPage() {
   useEffect(() => {
     fetchProducts();
   }, [fetchProducts]);
+
   if (!product) return null;
+
   return (
     <>
       <ScrollView
