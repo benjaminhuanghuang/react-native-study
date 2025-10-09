@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Text, TouchableOpacity, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import Colors from "@/shared/Colors";
+import { Settings } from "lucide-react-native";
 
 export default function Home() {
   const navigation = useNavigation();
@@ -39,6 +40,7 @@ export default function Home() {
           <Text>Pro</Text>
         </TouchableOpacity>
       ),
+      headerRight: () => <Settings style={{ marginRight: 15 }} />,
     });
   }, []);
 }
