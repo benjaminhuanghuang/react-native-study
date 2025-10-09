@@ -1,4 +1,4 @@
-# Expo Router 全栈应用程序开发
+# Expo Router Boilerplate
 
 <https://www.bilibili.com/video/BV1oBBoYoEmf>
 
