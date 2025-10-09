@@ -3,4 +3,8 @@
 <https://www.bilibili.com/video/BV1Ve2wYHE54>
 
 <https://www.youtube.com/watch?v=a_SthPXtV6c>
-<https://github.com/duanbiao2000/React-Native-With-Projects>
+<https://github.com/HuXn-WebDev/React-Native-With-Projects>
+
+```sh
+
+```
