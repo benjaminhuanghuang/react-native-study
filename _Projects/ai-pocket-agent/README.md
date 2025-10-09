@@ -5,3 +5,5 @@ npx create-expo-app@latest ai-pocket-agent
 npm run reset-project
    - no
 ```
+
+## 00:19:04 Landing Screen UI
