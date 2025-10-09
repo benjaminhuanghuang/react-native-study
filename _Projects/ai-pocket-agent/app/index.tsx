@@ -6,10 +6,36 @@ import {
   Dimensions,
   Touchable,
   TouchableOpacity,
+  ActivityIndicator,
 } from "react-native";
 import Colors from "./shared/Colors";
+import { useAuth, useUser } from "@clerk/clerk-expo";
+import { useCallback, useEffect, useState } from "react";
+import { useRouter } from "expo-router";
 
 export default function Index() {
+  const [loading, setLoading] = useState(true);
+  const { isSignedIn } = useAuth();
+  const router = useRouter();
+  const { user } = useUser();
+
+  useEffect(() => {
+    if (isSignedIn) {
+      // Redirect to the main app screen if already signed in
+    }
+
+    if (isSignedIn) {
+      setLoading(false);
+    }
+  }, [isSignedIn]);
+
+  const onLoginPress = useCallback(() => {
+    try {
+    } catch (error) {
+      console.error(JSON.stringify(error, null, 2));
+    }
+  }, []);
+
   return (
     <View
       style={{
@@ -49,25 +75,29 @@ export default function Index() {
           Your Ultimate AI Personal Agent Try it Today, Completely Free!
         </Text>
       </View>
-      <TouchableOpacity
-        style={{
-          width: "100%",
-          padding: 15,
-          backgroundColor: Colors.PRIMARY,
-          borderRadius: 12,
-          marginTop: 50,
-        }}
-      >
-        <Text
+      {!loading && (
+        <TouchableOpacity
           style={{
-            color: Colors.WHITE,
-            textAlign: "center",
-            fontSize: 16,
+            width: "100%",
+            padding: 15,
+            backgroundColor: Colors.PRIMARY,
+            borderRadius: 12,
+            marginTop: 50,
           }}
+          onPress={onLoginPress}
         >
-          Get Started
-        </Text>
-      </TouchableOpacity>
+          <Text
+            style={{
+              color: Colors.WHITE,
+              textAlign: "center",
+              fontSize: 16,
+            }}
+          >
+            Get Started
+          </Text>
+        </TouchableOpacity>
+      )}
+      {loading === undefined && <ActivityIndicator size={"large"} />}
     </View>
   );
 }
