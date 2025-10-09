@@ -2,6 +2,7 @@ import { View } from "react-native";
 
 //
 import Card from "../components/Car";
+import HugeList from "../components/HugeList";
 function Index() {
   return (
     <View>
@@ -14,6 +15,8 @@ function Index() {
         carRatings={3.5}
         carDescription="Here is some random car description"
       />
+
+      <HugeList />
     </View>
   );
 }
