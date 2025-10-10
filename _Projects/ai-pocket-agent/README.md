@@ -54,3 +54,11 @@ npm i -D @types/firebase
 ## 00:48:39 Tab Bar Navigation
 
 Get icon <https://www.flaticon.com/>
+
+## 01:26:33 Navigate One Screen to Other (Expo Router)
+
+chat/index.tsx
+
+## 01:51:52 Enable Free AI Models
+
+<https://kravixstudio.com/?ref=aiagent>
