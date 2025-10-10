@@ -18,7 +18,7 @@ import { useNavigation, useLocalSearchParams, useRouter } from "expo-router";
 import { Camera, Send, X, Plus } from "lucide-react-native";
 import colors from "../../shared/Colors";
 import { useUser } from "@clerk/clerk-expo";
-import { AIChartModel } from "../../shared/globalAPI";
+import { AIChartModel } from "../../shared/GlobalApi";
 
 import { FIREBASE_DB, FIREBASE_STORAGE } from "../../config/FirebaseConfig";
 import { setDoc, doc } from "firebase/firestore";

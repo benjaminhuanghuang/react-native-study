@@ -62,3 +62,30 @@ chat/index.tsx
 ## 01:51:52 Enable Free AI Models
 
 <https://kravixstudio.com/?ref=aiagent>
+
+## 02:15:00 Image Upload
+
+Select Image → Upload to Firestore → Pass User msg+image url → AI Model
+
+```js
+const uploadImageToStorage = async (fileUri: string) => {
+   const response = await fetch(fileUri);
+   const blob = await response.blob();
+
+   const uniqueFileName = `${Date.now()}.png`;
+   const imageRef = ref(FIREBASE_STORAGE, `AI_pocket_agent/${uniqueFileName}`);
+
+   await uploadBytes(imageRef, blob);
+   const imageURL = await getDownloadURL(imageRef);
+   return imageURL;
+};
+```
+
+## 02:40:27 Save Chat
+
+```js
+const saveMessagesAsync = useCallback();
+
+```
+
+## 02:48:21 Create Custom Agent
