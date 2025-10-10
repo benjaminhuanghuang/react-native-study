@@ -1,3 +1,5 @@
+import { MyComponent } from "@/components/MyComponent";
+import ThemeSwitcher from "@/components/ThemeSwitcher";
 import { Text, View } from "react-native";
 
 export default function Index() {
@@ -9,7 +11,8 @@ export default function Index() {
         alignItems: "center",
       }}
     >
-      <Text>Edit app/index.tsx to edit this screen.</Text>
+      <MyComponent />
+      <ThemeSwitcher />
     </View>
   );
 }
