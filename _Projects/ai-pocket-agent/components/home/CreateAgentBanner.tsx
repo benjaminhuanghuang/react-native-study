@@ -13,7 +13,7 @@ const CreateAgentBanner = () => {
   return (
     <View style={styles.container}>
       <Image
-        source={require("../../assets/images/agents/agent-group.png")}
+        source={require("../../assets/images/agent-group.png")}
         style={styles.image}
         resizeMode="content"
       />

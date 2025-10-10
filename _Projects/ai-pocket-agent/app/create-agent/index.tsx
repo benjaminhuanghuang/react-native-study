@@ -14,7 +14,7 @@ import { setDoc, doc } from "firebase/firestore";
 import { useUser } from "@clerk/clerk-expo";
 import EmojiPicker from "rn-emoji-keyboard";
 import colors from "../../shared/Colors";
-import { FIREBASE_DB } from "../../config/FirebaseConfig";
+import { firestoreDb } from "../../config/FirebaseConfig";
 
 const CreateAgent = () => {
   const navigation = useNavigation();
@@ -55,7 +55,7 @@ const CreateAgent = () => {
         userEmail: user?.primaryEmailAddress?.emailAddress,
       };
 
-      await setDoc(doc(FIREBASE_DB, "agents", agentID), agentData);
+      await setDoc(doc(firestoreDb, "agents", agentID), agentData);
 
       setAgentName("");
       setInstruction("");

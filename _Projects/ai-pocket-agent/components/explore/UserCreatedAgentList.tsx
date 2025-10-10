@@ -10,7 +10,7 @@ import { useRouter } from "expo-router";
 import { useUser } from "@clerk/clerk-expo";
 import { ChevronRight } from "lucide-react-native";
 import colors from "../../shared/Colors";
-import { FIREBASE_DB } from "../../config/FirebaseConfig";
+import { firestoreDb } from "../../config/FirebaseConfig";
 import {
   query,
   collection,
@@ -41,7 +41,7 @@ const UserCreatedAgentList = () => {
     try {
       const userEmail = user.primaryEmailAddress.emailAddress;
       const q = query(
-        collection(FIREBASE_DB, "agents"),
+        collection(firestoreDb, "agents"),
         where("userEmail", "==", userEmail)
       );
 

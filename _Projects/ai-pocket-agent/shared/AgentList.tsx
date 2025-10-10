@@ -1,17 +1,9 @@
-import React from "react";
-
-type Props = {};
-
-export default function AgentList({}: Props) {
-  return <div>AgentList</div>;
-}
-
 export const Agents = [
   {
     id: 1,
     name: "Writing Assistant",
     desc: "Write, rewrite, and fix texts quickly.",
-    image: require("../../assets/images/agent_1.png"),
+    image: require("../assets/images/agent_1.png"),
     initialText:
       "Write an email requesting leave from my manager for two days.",
     prompt:
@@ -23,7 +15,7 @@ export const Agents = [
     id: 2,
     name: "Image Generator",
     desc: "Create images from text prompts.",
-    image: require("../../assets/images/agent_2.png"),
+    image: require("../assets/images/agent_2.png"),
     initialText: "A futuristic city skyline at sunset in cyberpunk style.",
     prompt: "You are an AI image generator. Convert text into creative images.",
     type: "image",
@@ -33,7 +25,7 @@ export const Agents = [
     id: 3,
     name: "Translations",
     desc: "Translate text accurately between languages.",
-    image: require("../../assets/images/agent_3.png"),
+    image: require("../assets/images/agent_3.png"),
     initialText: 'Translate "Hello, how are you?" into French.',
     prompt:
       "You are a translation expert. Translate text while keeping meaning intact.",
@@ -44,7 +36,7 @@ export const Agents = [
     id: 4,
     name: "Productivity Coach",
     desc: "Plan tasks and improve focus.",
-    image: require("../../assets/images/agent_4.png"),
+    image: require("../assets/images/agent_4.png"),
     initialText: "Create a daily to-do list for working on a project deadline.",
     prompt:
       "You are a productivity assistant. Help users plan tasks and manage time efficiently.",
@@ -55,7 +47,7 @@ export const Agents = [
     id: 5,
     name: "Math Solver",
     desc: "Solve and explain math problems.",
-    image: require("../../assets/images/agent_5.png"),
+    image: require("../assets/images/agent_1.png"),
     initialText: "Solve: 2x + 5 = 15.",
     prompt:
       "You are a math assistant. Solve problems and explain step by step.",
@@ -66,7 +58,7 @@ export const Agents = [
     id: 6,
     name: "Caption Generator",
     desc: "Create captions for social media.",
-    image: require("../../assets/images/agent_6.png"),
+    image: require("../assets/images/agent_1.png"),
     initialText: "A picture of a puppy playing in the park.",
     prompt:
       "You are a caption generator. Create short, catchy captions with hashtags.",
@@ -77,7 +69,7 @@ export const Agents = [
     id: 7,
     name: "Grammar Fixer",
     desc: "Fix grammar and spelling errors.",
-    image: require("../../assets/images/agent_7.png"),
+    image: require("../assets/images/agent_1.png"),
     initialText: "I going to office yesterday.",
     prompt:
       "You are a grammar assistant. Correct grammar and spelling without changing meaning.",
@@ -88,7 +80,7 @@ export const Agents = [
     id: 8,
     name: "Fitness Coach",
     desc: "Get workouts and diet tips.",
-    image: require("../../assets/images/agent_8.png"),
+    image: require("../assets/images/agent_1.png"),
     initialText: "Create a 4-day workout plan for weight loss.",
     prompt: "You are a fitness assistant. Suggest workouts and meal plans.",
     type: "chat",
@@ -98,7 +90,7 @@ export const Agents = [
     id: 9,
     name: "Code Assistant",
     desc: "Write and debug code.",
-    image: require("../../assets/images/agent_9.png"),
+    image: require("../assets/images/agent_1.png"),
     initialText: "Write a Python function to check if a number is prime.",
     prompt: "You are a coding assistant. Generate and explain code.",
     type: "chat",
@@ -108,7 +100,7 @@ export const Agents = [
     id: 10,
     name: "Research Assistant",
     desc: "Summarize and organize information.",
-    image: require("../../assets/images/agent_10.png"),
+    image: require("../assets/images/agent_1.png"),
     initialText: "Summarize key points from an article about climate change.",
     prompt: "You are a research assistant. Summarize and simplify information.",
     type: "chat",
@@ -118,7 +110,7 @@ export const Agents = [
     id: 11,
     name: "Storyteller",
     desc: "Create stories or poems.",
-    image: require("../../assets/images/agent_11.png"),
+    image: require("../assets/images/agent_1.png"),
     initialText: "Tell a short bedtime story about a dragon and a princess.",
     prompt:
       "You are a storyteller. Write imaginative stories for kids and adults.",
@@ -129,7 +121,7 @@ export const Agents = [
     id: 12,
     name: "Email Generator",
     desc: "Draft professional emails.",
-    image: require("../../assets/images/agent_12.png"),
+    image: require("../assets/images/agent_1.png"),
     initialText:
       "Write a professional email to a client about project updates.",
     prompt: "You are an email assistant. Write clear, concise emails.",
