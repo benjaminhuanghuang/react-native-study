@@ -40,6 +40,8 @@ export default function Index() {
 
   console.log("User:", user?.primaryEmailAddress);
   useEffect(() => {
+    router.replace("./home");
+    return;
     if (isSignedIn) {
       // Redirect to the main app screen if already signed in
       router.replace("./home");

@@ -1,46 +1,95 @@
 import React, { useEffect } from "react";
-import { Text, TouchableOpacity, Image } from "react-native";
-import { useNavigation } from "@react-navigation/native";
-import Colors from "@/shared/Colors";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  TouchableOpacity,
+  FlatList,
+} from "react-native";
+import { useNavigation, useRouter } from "expo-router";
+import colors from "@/shared/Colors";
+import AgentListComponent from "../../components/home/AgentListComponent";
+import CreateAgentBanner from "../../components/home/CreateAgentBanner";
 import { Settings } from "lucide-react-native";
 
-export default function Home() {
+const Home = () => {
   const navigation = useNavigation();
 
   useEffect(() => {
     navigation.setOptions({
-      headerTitle: () => (
-        <Text
-          style={{
-            fontWeight: "bold",
-            fontSize: 18,
-          }}
-        >
-          AI Pocket Agent
-        </Text>
+      headerTitle: ({}) => (
+        <Text style={styles.headerTitleText}>Pocket Agent</Text>
       ),
       headerTitleAlign: "center",
-      headerLeft: () => (
-        <TouchableOpacity
-          style={{
-            marginLeft: 15,
-            display: "flex",
-            flexDirection: "row",
-            gap: 6,
-            backgroundColor: Colors.PRIMARY,
-            padding: 5,
-            paddingHorizontal: 10,
-            borderRadius: 5,
-          }}
-        >
+      headerLeft: ({}) => (
+        <TouchableOpacity style={styles.proButtonContainer}>
           <Image
             source={require("../../assets/images/diamond.png")}
-            style={{ width: 20, height: 20, marginLeft: 10 }}
+            style={styles.diamondIcon}
           />
-          <Text>Pro</Text>
+          <Text style={styles.proButtonText}>PRO</Text>
         </TouchableOpacity>
       ),
-      headerRight: () => <Settings style={{ marginRight: 15 }} />,
+      headerRight: ({}) => (
+        <View>
+          <Settings
+            size={24}
+            color={colors.black}
+            style={styles.settingsIcon}
+          />
+        </View>
+      ),
     });
   }, []);
-}
+
+  return (
+    <FlatList
+      data={[]}
+      renderItem={null}
+      ListHeaderComponent={() => (
+        <View style={styles.mainContentContainer}>
+          <AgentListComponent isFeatured={true} />
+
+          <CreateAgentBanner />
+
+          <AgentListComponent isFeatured={false} />
+        </View>
+      )}
+    />
+  );
+};
+
+const styles = StyleSheet.create({
+  headerTitleText: {
+    fontWeight: "bold",
+    fontSize: 18,
+  },
+  proButtonContainer: {
+    marginLeft: 15,
+    display: "flex",
+    flexDirection: "row",
+    gap: 6,
+    backgroundColor: colors.PRIMARY,
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    borderRadius: 15,
+    alignItems: "center",
+  },
+  diamondIcon: {
+    width: 20,
+    height: 20,
+  },
+  proButtonText: {
+    color: colors.WHITE,
+    fontWeight: "bold",
+  },
+  settingsIcon: {
+    marginRight: 10,
+  },
+  mainContentContainer: {
+    padding: 15,
+  },
+});
+
+export default Home;
