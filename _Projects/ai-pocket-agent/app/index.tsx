@@ -52,6 +52,7 @@ export default function Index() {
 
   const onLoginPress = useCallback(async () => {
     try {
+      console.log("---Login...");
       // Start the authentication process by calling `startSSOFlow()`
       const { createdSessionId, setActive, signIn, signUp } =
         await startSSOFlow({
