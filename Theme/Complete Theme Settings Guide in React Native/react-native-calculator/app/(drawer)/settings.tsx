@@ -6,11 +6,30 @@ import { Stack } from "expo-router";
 import { ThemeContext } from "@/context/ThemeContext";
 
 const Settings = () => {
-  const { currentTheme, toggleTheme } = useContext(ThemeContext);
+  const { currentTheme, toggleTheme, useSystemTheme, isSystemTheme } =
+    useContext(ThemeContext);
 
   return (
     <>
-      <Stack.Screen options={{ title: "Settings" }} />
+      <Stack.Screen
+        options={{
+          title: "Settings",
+          headerTitleStyle: {
+            color: currentTheme === "light" ? "black" : "white",
+          },
+          headerStyle: {
+            backgroundColor: currentTheme === "light" ? "white" : "black",
+          },
+          headerRight: () => (
+            <Switch
+              value={currentTheme === "dark"}
+              onValueChange={() => {
+                toggleTheme(currentTheme === "light" ? "dark" : "light");
+              }}
+            />
+          ),
+        }}
+      />
       <View style={styles.container}>
         <Text style={styles.title}>Theme Switch</Text>
         <TouchableOpacity style={styles.button} onPress={() => {}}>
@@ -26,20 +45,24 @@ const Settings = () => {
         <SettingsButton
           title="Light"
           icon="lightbulb-on"
-          onPress={() => {}}
-          isActive={false}
+          onPress={() => {
+            toggleTheme("light");
+          }}
+          isActive={currentTheme === "light" && !isSystemTheme}
         />
         <SettingsButton
           title="Dark"
           icon="weather-night"
-          onPress={() => {}}
-          isActive={true}
+          onPress={() => {
+            toggleTheme("dark");
+          }}
+          isActive={currentTheme === "dark" && !isSystemTheme}
         />
         <SettingsButton
           title="System"
           icon="theme-light-dark"
-          onPress={() => {}}
-          isActive={false}
+          onPress={useSystemTheme}
+          isActive={isSystemTheme}
         />
       </View>
     </>
