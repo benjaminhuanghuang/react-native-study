@@ -7,6 +7,7 @@ import { ThemeContext } from "@/context/ThemeContext";
 
 const Settings = () => {
   const { currentTheme, toggleTheme } = useContext(ThemeContext);
+
   return (
     <>
       <Stack.Screen options={{ title: "Settings" }} />

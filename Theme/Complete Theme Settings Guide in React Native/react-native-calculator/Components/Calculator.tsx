@@ -1,9 +1,12 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import React, { useState } from "react";
+import { StyleSheet, Text, View } from "react-native";
+import React, { useContext, useState } from "react";
 import { Colors } from "@/utils/Colors";
 import Button from "./Button";
+import { ThemeContext } from "@/context/ThemeContext";
 
 const Calculator = () => {
+  const { currentTheme, toggleTheme } = useContext(ThemeContext);
+
   const [firstValue, setFirstValue] = useState("");
   const [displayValue, setDisplayValue] = useState("0");
   const [operator, setOperator] = useState("");
