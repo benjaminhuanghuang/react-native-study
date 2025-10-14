@@ -1,10 +1,12 @@
 import { StyleSheet, Switch, Text, TouchableOpacity, View } from "react-native";
-import React from "react";
+import React, { useContext } from "react";
 import { Colors } from "@/utils/Colors";
 import SettingsButton from "@/Components/SettingsButton";
 import { Stack } from "expo-router";
+import { ThemeContext } from "@/context/ThemeContext";
 
 const Settings = () => {
+  const { currentTheme, toggleTheme } = useContext(ThemeContext);
   return (
     <>
       <Stack.Screen options={{ title: "Settings" }} />
@@ -12,7 +14,12 @@ const Settings = () => {
         <Text style={styles.title}>Theme Switch</Text>
         <TouchableOpacity style={styles.button} onPress={() => {}}>
           <Text>Dark Mode</Text>
-          <Switch />
+          <Switch
+            value={currentTheme === "dark"}
+            onValueChange={() => {
+              toggleTheme(currentTheme === "light" ? "dark" : "light");
+            }}
+          />
         </TouchableOpacity>
         <Text style={styles.title}>Theme Settings</Text>
         <SettingsButton
