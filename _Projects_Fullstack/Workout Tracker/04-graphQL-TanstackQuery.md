@@ -51,3 +51,11 @@ npm i @tanstack/react-query
 ```
 
 graphqlClient.ts
+
+```js
+const client = new GraphQLClient(url, {
+  headers: {
+    Authorization: `apikey ${apiKey}`,
+  },
+});
+```
