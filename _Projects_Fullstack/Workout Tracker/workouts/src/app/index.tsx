@@ -32,41 +32,41 @@ export default function ExercisesScreen() {
   const [search, setSearch] = useState("");
   const debouncedSearchTerm = useDebounce(search.trim(), 1000);
 
-  // const { data, isLoading, error, fetchNextPage, isFetchingNextPage } =
-  //   useInfiniteQuery({
-  //     queryKey: ["exercises", debouncedSearchTerm],
-  //     queryFn: ({ pageParam }) =>
-  //       client.request(exercisesQuery, {
-  //         offset: pageParam,
-  //         name: debouncedSearchTerm,
-  //       }),
-  //     initialPageParam: 0,
-  //     getNextPageParam: (lastPage, pages) => pages.length * 10,
-  //   });
+  const { data, isLoading, error, fetchNextPage, isFetchingNextPage } =
+    useInfiniteQuery({
+      queryKey: ["exercises", debouncedSearchTerm],
+      queryFn: ({ pageParam }) =>
+        client.request(exercisesQuery, {
+          offset: pageParam,
+          name: debouncedSearchTerm,
+        }),
+      initialPageParam: 0,
+      getNextPageParam: (lastPage, pages) => pages.length * 10,
+    });
 
-  // const { username } = useAuth();
+  const { username } = useAuth();
 
-  // const loadMore = () => {
-  //   if (isFetchingNextPage) {
-  //     return;
-  //   }
+  const loadMore = () => {
+    if (isFetchingNextPage) {
+      return;
+    }
 
-  //   fetchNextPage();
-  // };
+    fetchNextPage();
+  };
 
-  // if (isLoading) {
-  //   return <ActivityIndicator />;
-  // }
+  if (isLoading) {
+    return <ActivityIndicator />;
+  }
 
-  // if (error) {
-  //   return <Text>Failed to fetch exercises</Text>;
-  // }
+  if (error) {
+    return <Text>Failed to fetch exercises</Text>;
+  }
 
-  // if (!username) {
-  //   return <Redirect href={"/auth"} />;
-  // }
+  if (!username) {
+    return <Redirect href={"/auth"} />;
+  }
 
-  // const exercises = data?.pages.flatMap((page) => page.exercises);
+  const exercises = data?.pages.flatMap((page) => page.exercises);
 
   return (
     <View style={styles.container}>
