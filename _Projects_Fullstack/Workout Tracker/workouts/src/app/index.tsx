@@ -5,7 +5,6 @@ import {
   View,
   FlatList,
   ActivityIndicator,
-  Button,
 } from "react-native";
 import ExerciseListItem from "../components/ExerciseListItem";
 import { useInfiniteQuery } from "@tanstack/react-query";
