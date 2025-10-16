@@ -25,8 +25,20 @@ Update babel.config.js
 Start from
 /src/app/index.jsx
 
-Exercise Detail page: src/app/[name].tsx
+## Exercise Detail page
+
+src/app/[name].tsx
 
 ```js
  const { name } = useLocalSearchParams();
+```
+
+## Layout: Using stack to support  navigation on the header
+
+src/app/_layout.tsx
+
+```js
+<Stack>
+    <Stack.Screen name="index" options={{ title: "Exercises" }} />
+</Stack>
 ```
