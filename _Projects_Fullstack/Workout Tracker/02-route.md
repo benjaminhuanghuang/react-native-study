@@ -14,4 +14,19 @@ Update package.json
 "main": "expo-router/entry",
 ```
 
+Update app.json
+
+```json
+"scheme": "workouts",
+```
+
+Update babel.config.js
+
+Start from
 /src/app/index.jsx
+
+Exercise Detail page: src/app/[name].tsx
+
+```js
+ const { name } = useLocalSearchParams();
+```

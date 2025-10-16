@@ -1,6 +1,5 @@
 /*
-  /{exerciseName} ExerciseDetailsScreen 
-
+  ExerciseDetailsScreen : /{exerciseName}
 */
 import { View, Text, StyleSheet, ActivityIndicator } from "react-native";
 import { useLocalSearchParams } from "expo-router";
